@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="black">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Status</title>
+
+    <style type="text/css">
+    	#btnd1{
+    		display: none;
+    	}
+
+        #textarea{
+
+            padding: 5px;
+            font-size: 20px;
+            border-radius: 4px;
+        
+        }
+
+        .status{
+            padding: 10px;
+            color:white;
+            background-color: #20D015;
+            width: fit-content;
+        }
+    </style>
+ <script type="text/javascript">
+        	
+                
+
+            var myVar = setInterval(reload, 1230);
+            var myVar = setInterval(b3, 1230);
+            function b3() {
+                // body...
+                var x = window.location.hash;
+                document.getElementById("hash").innerHTML=x;
+            }
+
+            function reload() {
+                // body...
+                var s = document.getElementById("urllink").value;
+                //var href = window.location.href;
+                window.location="file:///E:/bad/aa/button.html?#"+s;
+                //alert(s);
+            }
+            var myVar = setInterval(checkstatus, 2330);
+            function checkstatus() {
+                // body...
+                    var ss= document.getElementById("status");
+                    var oldmsg = document.getElementById("oldmsg").value;
+
+                    var newmsg = document.getElementById("newmsg").value=oldmsg;
+
+                if (oldmsg == newmsg) {
+                    document.getElementById("status").innerHTML="online";
+                } else {
+                    document.getElementById("status").innerHTML="typing...";
+                }
+            }
+
+
+        </script>
+</head>
+ 
+<body>
+        
+        <hr>
+
+        <!-- -->
+        
+ 
+
+Baadal<br>
+<br>
+<p id="status">s</p>
+<hr><br>
+
+
+<input type="text" id="oldmsg">
+
+<input type="text" id="newmsg"><br><br><br><br>
+
+<hr><hr><hr><br><br>
+
+<script type="text/javascript" language="javascript">
+    var user=prompt("What is your name");
+    var timer = 0;
+
+    function reduceTimer() {
+        timer = timer - 1;
+        isTyping(true);
+    }
+
+    function isTyping(val) {
+        if (val == 'true') {
+            document.getElementById('status_n').innerHTML = user +" is typing... ";
+        } else {
+
+            if (timer <= 0) {
+                document.getElementById('status_n').innerHTML = user +" is online "; 
+            } else {
+                setTimeout("reduceTimer();", 500);
+            }
+        }
+    }
+</script>
+
+<h1>Case 1</h1>
+<h3>This is Moderate</h3>
+<p id="status_n"></p>
+<br>
+
+<label>
+    <input onkeypress="isTyping('true'); timer=3;" onkeyup="isTyping('false')" name="textarea" id="textarea" width ="25" height="2"></input>
+</label>
+
+<br><br><hr><br><br>
+
+<h1>Case 2</h1>
+<h3>This is very fast and exact.</h3>
+<p class="status" id="s_n"></p>
+<br>
+<input onkeypress='document.getElementById("s_n").innerHTML=user +" is typing ";' onkeyup='document.getElementById("s_n").innerHTML=user +" is online ";' name="textarea" id="textarea"  width ="25" height="2"></input>
+
+</body>
+</html>
